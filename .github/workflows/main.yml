@@ -19,3 +19,5 @@ jobs:
       run: pip install requests
     - name: Download file
       run: python script.py
+      env:
+        LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.19/x64/lib
