@@ -18,15 +18,12 @@ jobs:
     - name: Install dependencies
       run: pip install requests
     - name: Download file
-      run: python script.py
-      env:
-        LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.19/x64/lib
-    - name: Commit
+      run: python ./script.py
       env:
           GIT_NAME: GitHub Actions[Bot]
           GIT_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
-        
-      run: |
+    - name: commit file    
+      run:
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
