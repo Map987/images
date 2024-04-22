@@ -1,25 +1,19 @@
-import os
 import requests
+import os
 
-# 指定要下载的文件的URL
-url = 'https://images2.penguinrandomhouse.com/cover/tif/9780670786190'
-
-# 指定下载到本地的文件路径
-local_filename = 'download'
-
-
-try:
-    # 发送HTTP请求
-    response = requests.get(url, stream=True)
-
-    # 检查请求是否成功
-    response.raise_for_status()
-
-    # 以二进制写模式打开文件
-    with open(local_filename, 'wb') as f:
-        for chunk in response.iter_content(chunk_size=1024):
-            if chunk:  # 过滤掉保持连接的新的块
+def download_file(url, local_filename):
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with open(local_filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
-    print(f'文件已下载到 {local_filename}')
-except requests.exceptions.HTTPError as err:
-    print(f'下载过程中出现错误: {err}')
+
+# 使用环境变量来设置URL和本地文件名
+url = os.getenv('DOWNLOAD_URL')
+local_filename = os.getenv('LOCAL_FILENAME')
+
+if url and local_filename:
+    download_file(url, local_filename)
+    print(f"File downloaded: {local_filename}")
+else:
+    print("Environment variables not set.")
