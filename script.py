@@ -4,7 +4,9 @@ import requests
 url = 'https://images2.penguinrandomhouse.com/cover/tif/9780670786190'
 
 # 指定下载到本地的文件路径
-local_filename = 'download/9780670786190.tif'
+local_filename = 'download/tif'
+if not os.path.exists(download):
+        os.makedirs(download)
 
 try:
     # 发送HTTP请求
