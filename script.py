@@ -1,7 +1,7 @@
 import os
 import requests
 
-# 文件下载地址
+# 文件下载地址 
 url = 'https://images2.penguinrandomhouse.com/cover/tif/9780670786190'
 
 # 目标文件夹
