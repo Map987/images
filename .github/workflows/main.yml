@@ -29,10 +29,12 @@ jobs:
           GIT_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
         
       run: |
+          
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
           
-           
+          git fetch
+          git pull
           
           
           
