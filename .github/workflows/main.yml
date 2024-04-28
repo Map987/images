@@ -12,13 +12,9 @@ jobs:
   # a single job
   a-job-name:
     runs-on: ubuntu-latest
-    permissions:
-     contents: write
-     
     steps:
-
-
-
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Set up Python3
         uses: actions/setup-python@v2
         with:
@@ -38,22 +34,20 @@ jobs:
          git lfs track "*"  
       - name: Commit
         env:
-         
          GIT_NAME: GitHub Actions[Bot]
          GIT_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
-         
+
   
         run: |
           
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
-    
+          git add .
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
-          git push
-
+          git lfs push
           
       - name: Push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.WORKFLOW_TOKEN }}
-          branch: main          
+          branch: main
