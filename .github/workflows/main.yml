@@ -46,9 +46,9 @@ jobs:
           git add .
           git init
           
-          git pull --rebase --autostash
+          git pull --rebase --autostash origin main
           
-          git pull
+          
           git fetch
           
     
