@@ -45,6 +45,7 @@ jobs:
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
           git add .
+          git pull
           git add .gitattributes
           git config --bool core.bare false
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
@@ -52,6 +53,6 @@ jobs:
           
       - name: Push
         uses: ad-m/github-push-action@master
-        with:
+        with: main
           github_token: ${{ secrets.WORKFLOW_TOKEN }}
           branch: main
