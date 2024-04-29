@@ -55,7 +55,7 @@ jobs:
           
           
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
-          git push --set-upstream
+          git push --set-upstream origin main
           
       - name: Push
         uses: ad-m/github-push-action@master
