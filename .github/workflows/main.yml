@@ -44,7 +44,7 @@ jobs:
           git config --local user.email $GIT_EMAIL
           git config --global --add safe.directory "*"
           git add .
-          git stach
+          git stash
           
           
     
