@@ -11,7 +11,7 @@ env:
 jobs:
   # a single job
   a-job-name:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -42,8 +42,9 @@ jobs:
           
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global --add safe.directory "*"
           git add .
+          git stach
           
           
     
