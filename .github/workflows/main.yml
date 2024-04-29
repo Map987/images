@@ -43,13 +43,15 @@ jobs:
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
           git add .
+          
           git pull --rebase --autostash origin main
           
           git pull origin main
-          git stash
+          git fetch
+          
     
           
-          git add .gitattributes
+          
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
           git push --set-upstream -u original main
           
