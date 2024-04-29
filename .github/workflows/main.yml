@@ -45,11 +45,7 @@ jobs:
           git config --global --add safe.directory "*"
           git add .
           git stash
-          
-          rm -rf .git/
-          
-    
-          git init
+
           git remote add origin https://github.com/Map987/images.git
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
           git push -f origin main
