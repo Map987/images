@@ -45,6 +45,7 @@ jobs:
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
           git add .
+          git add .gitattributes
           git config --bool core.bare false
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
           git push
