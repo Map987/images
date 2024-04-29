@@ -43,9 +43,13 @@ jobs:
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
           git add .
+          git pull --rebase origin main
+          git pull origin main
+
+          
           git add .gitattributes
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
-          git push
+          git push -u original main
           
       - name: Push
         uses: ad-m/github-push-action@master
