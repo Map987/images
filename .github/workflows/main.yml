@@ -46,16 +46,16 @@ jobs:
           git add .
           git init
           
-          git pull --rebase --autostash origin main
+          git pull --rebase --autostash
           
-          git pull origin main
+          git pull
           git fetch
           
     
           
           
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
-          git push --set-upstream -u original main
+          git push --set-upstream
           
       - name: Push
         uses: ad-m/github-push-action@master
