@@ -11,10 +11,10 @@ env:
 jobs:
   # a single job
   a-job-name:
-    
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Set up Python3
         uses: actions/setup-python@v2
         with:
@@ -42,7 +42,9 @@ jobs:
           
           git config --local user.name $GIT_NAME
           git config --local user.email $GIT_EMAIL
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git add .
+          git init
           
           git pull --rebase --autostash origin main
           
